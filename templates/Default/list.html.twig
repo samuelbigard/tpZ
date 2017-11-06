@@ -1,0 +1,7 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {% for user in tabUser %}
+        <li>{{ user.id}} {{ user.nom}} {{ user.prenom }} <a href="{{ path("show_user",{'id': user.id}) }}">Plus</a></li>
+    {% endfor %}
+{% endblock %}

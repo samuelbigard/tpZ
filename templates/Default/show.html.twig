@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+Nom : {{ user.nom }}<br>
+Prenom : {{ user.prenom }}<br>
+Mail : {{ user.mail }}<br>
+Nom GitHub : {{ user.nomGitHub }}<br>
+    {% if user.discord  is not null %}
+        Discord : {{ user.discord }}<br>
+        {% endif %}
+
+    <a href="{{ path("list_user") }}">retour a la liste</a>
+{% endblock %}

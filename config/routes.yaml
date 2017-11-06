@@ -2,6 +2,18 @@ index:
     path: /
     defaults: { _controller: 'App\Controller\DefaultController::index' }
 
+create_user:
+    path: /create-user
+    defaults: { _controller: 'App\Controller\DefaultController::create' }
+
+show_user:
+    path: /show-user/{id}
+    defaults: { _controller: 'App\Controller\DefaultController::show' }
+
+list_user:
+    path: /list-user
+    defaults: { _controller: 'App\Controller\DefaultController::listUser' }
+
 # first, run composer req annotations
 controllers:
     resource: ../src/Controller/
