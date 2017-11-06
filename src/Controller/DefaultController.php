@@ -13,7 +13,7 @@ class DefaultController extends Controller
      */
     function index2(){
         return $this->render(
-            'Default/index.html.twig',[]
+            'Default/index2.html.twig',[]
         );
     }
 
