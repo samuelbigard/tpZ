@@ -9,12 +9,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends Controller
 {
     /**
-     *  @Route("/", name="hello_world")
+     *  @Route("/annotation", name="hello_world")
      */
-    function index(){
+    function index2(){
         return $this->render(
             'Default/index.html.twig',[]
         );
     }
 
+    function index(){
+        return $this->render(
+            'Default/index.html.twig',[]
+        );
+    }
 }
