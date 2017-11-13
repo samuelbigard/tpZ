@@ -1,6 +1,10 @@
-#index:
-#    path: /
-#    defaults: { _controller: 'App\Controller\DefaultController::index' }
+index:
+    path: /
+    defaults: { _controller: 'App\Controller\PersonController::index' }
+
+newPerson:
+    path: /new
+    defaults: { _controller: 'App\Controller\PersonController::newPerson' }
 
 # first, run composer req annotations
 #controllers:
