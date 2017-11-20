@@ -22,10 +22,7 @@ class PersonType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options){
         $builder
             ->add("name", TextType::class)
-            ->add("age", IntegerType::class)
-            ->add("createdAt", DateType::class)
-            ->add("color", TextType::class)
-            ->add("visible", CheckboxType::class)
+            ->add("maxWeight", IntegerType::class)
             ->add("save", SubmitType::class, array("label"=>"Creer"));
     }
 }

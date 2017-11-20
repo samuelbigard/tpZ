@@ -7,7 +7,7 @@
 <a href="{{ path("newPerson") }}">Clique pour add une personne</a>
     <ul>
         {% for person in persons %}
-            <li>nom : {{ person.name }} ; age : {{ person.age }} ; visible ? {{ person.visible }} ; couleur : {{ person.color }}</li>
+            <li>nom : {{ person.name }} ; poids max : {{ person.maxWeight }}</li>
         {% endfor %}
     </ul>
 {% endblock %}

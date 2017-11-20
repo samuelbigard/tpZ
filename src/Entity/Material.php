@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: samuel.bigard
+ * Date: 20/11/17
+ * Time: 13:21
+ */
 
 namespace App\Entity;
 
@@ -6,10 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="person")
+ * @ORM\Table(name="material")
  */
-
-class Person
+class Material
 {
     /**
      * @ORM\Column(type="integer")
@@ -24,9 +29,9 @@ class Person
     private $name;
 
     /**
-     * @ORM\Column(type="integer", name="max_weight")
+     * @ORM\Column(type="decimal", precision=4,scale=3)
      */
-    private $maxWeight;
+    private $weight;
 
     /**
      * @return mixed
@@ -63,16 +68,16 @@ class Person
     /**
      * @return mixed
      */
-    public function getMaxWeight()
+    public function getWeight()
     {
-        return $this->maxWeight;
+        return $this->weight;
     }
 
     /**
-     * @param mixed $maxWeight
+     * @param mixed $weight
      */
-    public function setMaxWeight($maxWeight)
+    public function setWeight($weight)
     {
-        $this->maxWeight = $maxWeight;
+        $this->weight = $weight;
     }
 }
