@@ -32,6 +32,7 @@ class PersonController extends Controller
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
+            $this->container->get('session')->getFlashBag()->add("success","Nouvelle personne créé avec succès");
             $em->persist($person);
             $em->flush();
         }

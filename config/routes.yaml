@@ -10,6 +10,10 @@ newMaterial:
     path: /material/new
     defaults: { _controller: 'App\Controller\MaterialController::newMaterial' }
 
+newInventory:
+    path: /inventory/new
+    defaults: { _controller: 'App\Controller\InventoryController::newInventory' }
+
 # first, run composer req annotations
 #controllers:
 #    resource: ../src/Controller/

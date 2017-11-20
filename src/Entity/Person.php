@@ -42,6 +42,11 @@ class Person
         $this->inventories = new ArrayCollection();
     }
 
+    function __toString()
+    {
+        return $this->getName();
+    }
+    
     /**
      * @return mixed
      */

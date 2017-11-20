@@ -33,6 +33,11 @@ class Material
      */
     private $weight;
 
+    function __toString()
+    {
+        return $this->getName();
+    }
+
     /**
      * @return mixed
      */
