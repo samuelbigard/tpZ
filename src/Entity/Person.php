@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,6 +28,35 @@ class Person
      * @ORM\Column(type="integer", name="max_weight")
      */
     private $maxWeight;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Inventory", mappedBy="person")
+     */
+    private $inventories;
+
+    /**
+     * Person constructor.
+     */
+    public function __construct()
+    {
+        $this->inventories = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInventories()
+    {
+        return $this->inventories;
+    }
+
+    /**
+     * @param mixed $inventories
+     */
+    public function setInventories($inventories)
+    {
+        $this->inventories = $inventories;
+    }
 
     /**
      * @return mixed
