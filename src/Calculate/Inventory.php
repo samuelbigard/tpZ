@@ -3,6 +3,7 @@
 namespace App\Calculate;
 
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 class Inventory {
     private $em;
@@ -12,7 +13,7 @@ class Inventory {
     /**
      * Inventory constructor.
      */
-    public function __construct(EntityManager $em)
+    public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
     }
