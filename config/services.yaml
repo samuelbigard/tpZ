@@ -3,6 +3,7 @@
 parameters:
     locale: 'en'
     my_parameter: '%env(MY_NAME_IS)%'
+    nbItem: '%env(nbItem)%'
 
 services:
     # default configuration for services in *this* file
@@ -30,9 +31,17 @@ services:
         tags: ['controller.service_arguments']
 
 
-    App\Calculate\Calcul:
-        arguments: ['@doctrine.orm.entity_manager']
+    App\Entity\Player:
         public: true
-        autowire: true
 
+    App\Entity\Item:
+        public: true
+
+    App\Entity\PlayerItem:
+        public: true
+
+    App\Form\PlayerItemType:
+        public: true
+        autowire: false
+        arguments: [ '%nbItem%' ]
 

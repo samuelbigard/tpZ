@@ -12,9 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="material")
+ * @ORM\Table(name="tpBlanc_Item")
  */
-class Material
+class Item
 {
     /**
      * @ORM\Column(type="integer")
@@ -29,9 +29,9 @@ class Material
     private $name;
 
     /**
-     * @ORM\Column(type="decimal", precision=4,scale=3)
+     * @ORM\Column(type="string", length=20, name="type_item")
      */
-    private $weight;
+    private $typeItem;
 
     function __toString()
     {
@@ -73,16 +73,18 @@ class Material
     /**
      * @return mixed
      */
-    public function getWeight()
+    public function getTypeItem()
     {
-        return $this->weight;
+        return $this->typeItem;
     }
 
     /**
-     * @param mixed $weight
+     * @param mixed $typeItem
      */
-    public function setWeight($weight)
+    public function setTypeItem($typeItem)
     {
-        $this->weight = $weight;
+        $this->typeItem = $typeItem;
     }
+
+
 }

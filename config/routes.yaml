@@ -1,20 +1,3 @@
-index:
-    path: /
-    defaults: { _controller: 'App\Controller\PersonController::index' }
-
-newPerson:
-    path: /person/new
-    defaults: { _controller: 'App\Controller\PersonController::newPerson' }
-
-newMaterial:
-    path: /material/new
-    defaults: { _controller: 'App\Controller\MaterialController::newMaterial' }
-
-newInventory:
-    path: /inventory/new
-    defaults: { _controller: 'App\Controller\InventoryController::newInventory' }
-
-# first, run composer req annotations
-#controllers:
-#    resource: ../src/Controller/
-#    type: annotation
+controllers:
+    resource: ../src/Controller/
+    type: annotation
