@@ -30,18 +30,9 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
-
     App\Entity\Player:
         public: true
 
-    App\Entity\Item:
+    App\Event\PlayerEvent:
         public: true
-
-    App\Entity\PlayerItem:
-        public: true
-
-    App\Form\PlayerItemType:
-        public: true
-        autowire: false
-        arguments: [ '%nbItem%' ]
 

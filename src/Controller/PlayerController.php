@@ -8,10 +8,12 @@
 
 namespace App\Controller;
 
+use App\AppEvent;
 use App\Entity\Player;
 
 
 use App\Entity\PlayerItem;
+use App\Event\PlayerEvent;
 use App\Form\PlayerType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,26 +27,9 @@ class PlayerController extends Controller
      * @Route("/",name="index")
      */
     public function index(){
-        return $this->render("index.html.twig");
-    }
-
-    /**
-     * @Route("/listPlayer",name="list_player")
-     */
-    public function listPlayer(){
         $em = $this->getDoctrine()->getManager();
         $players = $em->getRepository(Player::class)->findAll();
-
-        return $this->render("Player/list.html.twig", array("players"=>$players));
-    }
-
-    /**
-     * @Route("/player/{id}",name="show_player")
-     */
-    public function show(Player $player){
-        $em=$this->getDoctrine()->getManager();
-        $items = $em->getRepository(PlayerItem::class)->findBy(array("player"=> $player->getId()));
-        return $this->render("Player/show.html.twig", array("player"=>$player, "items"=>$items));
+        return $this->render("index.html.twig", array("players"=>$players));
     }
 
     /**
@@ -52,14 +37,14 @@ class PlayerController extends Controller
      */
     public function newPlayer(Request $request){
         $player = $this->get(\App\Entity\Player::class);
-        $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(PlayerType::class, $player);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
-            $this->container->get('session')->getFlashBag()->add("success","Nouveau joueur créé avec succès");
-            $em->persist($player);
-            $em->flush();
+            $playerEvent = $this->get(PlayerEvent::class);
+            $playerEvent->setPlayer($player);
+            $dispatcher = $this->get('event_dispatcher');
+            $dispatcher->dispatch(AppEvent::PLAYER_ADD, $playerEvent);
             return $this->redirectToRoute("list_player");
         }
 

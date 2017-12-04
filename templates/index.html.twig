@@ -4,7 +4,10 @@
 {% endblock %}
 
 {% block body %}
-    {% block menu %}
-        {% include("menu.html.twig") %}
-    {% endblock %}
+
+    <a href="{{ path("new_player") }}">Clique pour add un joueur</a><br>
+
+    {% for player in players %}
+        <li>nom : {{ player.name }} - {{ player.age }} - {{ player.country }}</li>
+    {% endfor %}
 {% endblock %}
