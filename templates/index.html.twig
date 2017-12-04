@@ -8,6 +8,6 @@
     <a href="{{ path("new_player") }}">Clique pour add un joueur</a><br>
 
     {% for player in players %}
-        <li>nom : {{ player.name }} - {{ player.age }} - {{ player.country }}</li>
+        <li>nom : {{ player.name }} - <a href="{{ path("edit_player", {id: player.id}) }}">edit</a></li>
     {% endfor %}
 {% endblock %}

@@ -35,60 +35,14 @@ class Player
     /**
      * @Assert\NotBlank()
      * @ORM\Column(type="string", length=100)
-     * @Assert\Choice({"France", "Belgique"})
+     * @Assert\Choice({"ADC", "MID", "JUNGLE", "SUPP", "TOP"})
      */
-    private $country;
-
-    /**
-     * @ORM\Column(type="integer", length=100)
-     * @Assert\NotBlank()
-     * @Assert\Range(
-     *      min = 18,
-     *      max = 99,
-     *      minMessage = "You must be at least {{ limit }}yo",
-     *      maxMessage = "You cannot be taller than {{ limit }}yo"
-     * )
-     */
-    private $age;
+    private $role;
 
     function __toString()
     {
         return $this->getName();
     }
-
-    /**
-     * @return mixed
-     */
-    public function getCountry()
-    {
-        return $this->country;
-    }
-
-    /**
-     * @param mixed $country
-     */
-    public function setCountry($country)
-    {
-        $this->country = $country;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAge()
-    {
-        return $this->age;
-    }
-
-    /**
-     * @param mixed $age
-     */
-    public function setAge($age)
-    {
-        $this->age = $age;
-    }
-
-
 
     /**
      * @return mixed
@@ -105,6 +59,24 @@ class Player
     {
         $this->id = $id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param mixed $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+
+
 
     /**
      * @return mixed

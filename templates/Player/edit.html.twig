@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ajout Personne{% endblock %}
+
+{% block body %}
+
+Edit
+    <a href="{{ path('index') }}">Retour</a>
+
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}
